@@ -16,11 +16,21 @@ body {
 	color: #111111;
 	font-family: Helvetica;
 	padding: 20px;
-	font-size: 16px
+	font-size: 14px
+	border: 5px solid black;
 }
 
+input:not([type=checkbox]), textarea {
+	width: 250px;
+	padding: 5px;
+	border: 1px solid #ccc;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+}
+
+
 form {
-	width: 600px;
+	width: 800px;
 	margin: 0 auto 0 auto;
 
 
@@ -69,8 +79,8 @@ form ol li label {
 
 form ol.radio-buttons li {
 	float:left;
-margin-bottom:0;
-width:8px;
+    margin-bottom:0;
+    width:8px;
 }
 
 form ol.radio-buttons li label {
@@ -213,22 +223,78 @@ input[type=reset] {
 
 }
 
+
 </style>
 
-        <!-- <link rel="stylesheet" href="style.css" type="text/css"> -->
+
 </head>
-    <body>
-    <form id="form-1" action="" method="post">{% csrf_token %}
-        <fieldset>
-                <center><legend>Онлайн калькулятор личных расходов</legend></center>
-                <p></p>
-                <a href="http://127.0.0.1:8000/admin"><center>Перейти в админ-панель</center></a>
-                <p></p>
-                <a href="http://127.0.0.1:8000/blog"><center>Перейти в блог</center></a>
-                <p></p>
-                <a href="http://127.0.0.1:8000/spend"><center>Перейти на панель расходов</center></a>
-        </fieldset>
-    </form>
+
+<body>
+
+<form id="form-1" action="" method="post">{% csrf_token %}
+  <fieldset>
+    <legend>Занесение нового расхода</legend>
+    <ol>
+        <li><label for="form-1">Категория</label></li>
+        <select size="" autofocus name="category[]" required form="form-1">
+            <option value="Продукты питания">Продукты питания</option>
+            <option value="Связь">Связь</option>
+            <option value="Коммунальные платежи">Коммунальные платежи</option>
+            <option value="Автомобиль">Автомобиль</option>
+            <option value="Общественный транспорт">Общественный транспорт</option>
+            <option value="Налоги и штрафы">Налоги и штрафы</option>
+            <option value="Развлечения">Развлечения</option>
+            <option value="Другая категория">Другая категория</option>
+        </select>
+
+    <!-- <li><input type="text" id="field1" name="field1" required/></li> -->
+    </ol>
+    <ol>
+      <li><label for="name">Наименование</label></li>
+      <li><input type="text" id="name" name="name" /></li>
+    </ol>
+      <ol>
+      <li><label for="amount">Сумма</label></li>
+      <li><input type="text" id="amount" name="amount" /></li>
+    </ol>
+      <div class="settings">
+          <p>
+			<input type="checkbox" value="1" id="1" name="1" checked="checked"/>
+			<label class="check" for="1"></label>
+			<label class="info">Запланированная трата</label>
+
+		  </p>
+		  <p>
+          	<input type="checkbox" value="2" id="2" name="2" />
+			<label class="check" for="2"></label>
+			<label class="info">Allow anyone to register</label>
+          </p>
+
+      </div>
+    <ol class="buttons">
+        <li><input type="submit" class="button" value="OK" /></li>
+        <li><input type="reset" class="button" value="Отмена" /></li>
+    </ol>
+  </fieldset>
+
+</form>
+
+
+</body>
+
+</html>
+
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Spend page</title>
+</head>
+<body>
+    <a href="http://127.0.0.1:8000/admin"><center>Перейти в админ-панель</center></a>
+    <p></p>
+    <a href="http://127.0.0.1:8000/blog"><center>Перейти в блог</center></a>
     <p><center>HomebrewDev (c) Егор Девятов 2019г.</center></p>
-    </body>
+</body>
 </html>
