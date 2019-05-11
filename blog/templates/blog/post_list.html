@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-<title>Spend page</title>
+<title>Онлайн калькулятор личных расходов</title>
 <meta charset="utf-8">
 
 <style type="text/css">
@@ -20,7 +20,7 @@ body {
 }
 
 form {
-	width: 600px;
+	width: 800px;
 	margin: 0 auto 0 auto;
 
 
@@ -221,12 +221,12 @@ input[type=reset] {
     <form id="form-1" action="" method="post">{% csrf_token %}
         <fieldset>
                 <center><legend>Онлайн калькулятор личных расходов</legend></center>
-                <p></p>
+                <br>
                 <a href="http://127.0.0.1:8000/admin"><center>Перейти в админ-панель</center></a>
-                <p></p>
-                <a href="http://127.0.0.1:8000/blog"><center>Перейти в блог</center></a>
-                <p></p>
-                <a href="http://127.0.0.1:8000/spend"><center>Перейти на панель расходов</center></a>
+                <br>
+                <a href="http://127.0.0.1:8000/add_spend"><center>Перейти на панель расходов</center></a>
+                <br>
+                <a href="http://127.0.0.1:8000/spends-list"><center>Вывести список расходов</center></a>
         </fieldset>
     </form>
     <p><center>HomebrewDev (c) Егор Девятов 2019г.</center></p>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h1>Расходы:</h1>
+
+    <ul>
+	    {% for spend in object_list %}
+	    <li class="spend">Категория: {{ spend.category }}</li>
+        <li class="spend">Наименование: {{ spend.name }}</li>
+        <li class="spend">Дата создания: {{ spend.created_date }}</li>
+        <li class="spend">Цена: {{ spend.amount }}</li>
+        <li class="spend">---------------------------------------------------</li>
+	    {% endfor %}
+    </ul>
+</body>
+</html>

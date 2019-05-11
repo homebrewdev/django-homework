@@ -231,12 +231,12 @@ input[type=reset] {
 
 <body>
 
-<form id="form-1" action="" method="post">{% csrf_token %}
+<form id="form-add-spend" action="" method="post">{% csrf_token %}
   <fieldset>
     <legend>Занесение нового расхода</legend>
     <ol>
-        <li><label for="form-1">Категория</label></li>
-        <select size="" autofocus name="category[]" required form="form-1">
+        <li><label for="form-add-spend">Категория</label></li>
+        <select size="" autofocus name="category" required form="form-add-spend">
             <option value="Продукты питания">Продукты питания</option>
             <option value="Связь">Связь</option>
             <option value="Коммунальные платежи">Коммунальные платежи</option>
