@@ -1,15 +1,38 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-<title>Онлайн калькулятор личных расходов</title>
+<title>Учет личных расходов</title>
 <meta charset="utf-8">
 
-<style type="text/css">
+<style>
 
 html, body, h1, form, fieldset, legend, ol, li {
 	margin: 0;
 	padding: 0;
 }
+
+header, nav {
+  text-align: center;
+  background: white;
+  margin: 20px 0;
+  padding: 10px;
+}
+
+nav a {
+  text-decoration: none;
+  background: #333;
+  border-radius: 5px;
+  color: white;
+  padding: 3px 8px;
+}
+
+.center {
+  margin: 0 auto;
+  width: 600px;
+  padding: 0px;
+  text-align: center;
+}
+
 
 body {
 	background: #ffffff;
@@ -22,8 +45,6 @@ body {
 form {
 	width: 800px;
 	margin: 0 auto 0 auto;
-
-
 }
 
 form fieldset {
@@ -38,7 +59,9 @@ form legend {
 	color: #030303;
 	-moz-border-radius: 6px;
 	-webkit-border-radius: 6px;
-	border: 1px solid #b4b4b4;
+	border: 3px solid #b4b4b4;
+	position: relative;
+	text-align: center;
 }
 
 form ol {
@@ -86,7 +109,6 @@ width:20px;
 
 
 .settings {
-	/* width: 400px; */
 	list-style: none;
 	position: relative;
 }
@@ -103,7 +125,6 @@ width:20px;
 	position: relative;
 	height: 15px;
 }
-
 
 .check {
 	display: block;
@@ -218,17 +239,17 @@ input[type=reset] {
         <!-- <link rel="stylesheet" href="style.css" type="text/css"> -->
 </head>
     <body>
-    <form id="form-1" action="" method="post">{% csrf_token %}
+    <form id="form-1" method="post">{% csrf_token %}
         <fieldset>
-                <center><legend>Онлайн калькулятор личных расходов</legend></center>
-                <br>
-                <a href="http://127.0.0.1:8000/admin"><center>Перейти в админ-панель</center></a>
-                <br>
-                <a href="http://127.0.0.1:8000/add_spend"><center>Перейти на панель расходов</center></a>
-                <br>
-                <a href="http://127.0.0.1:8000/spends-list"><center>Вывести список расходов</center></a>
+            <legend>Учет личных расходов</legend>
+            <ol class="center">
+            <li><a href="http://127.0.0.1:8000/admin">Перейти в админ-панель</a></li>
+            <li><br><a href="http://127.0.0.1:8000/add_spend">Добавить новый расход</a></li>
+            <li><br><a href="http://127.0.0.1:8000/spends-list">Вывести список расходов</a></li>
+            </ol>
         </fieldset>
+        <!-- Подвал Footer -->
+        <p class="center"> HomebrewDev (c) Егор Девятов 2019 г.</p>
     </form>
-    <p><center>HomebrewDev (c) Егор Девятов 2019г.</center></p>
     </body>
 </html>

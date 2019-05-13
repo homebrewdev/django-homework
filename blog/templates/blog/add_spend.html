@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-<title>Spend page</title>
+<title>Добавить новый расход</title>
 <meta charset="utf-8">
 
 <style type="text/css">
@@ -16,8 +16,7 @@ body {
 	color: #111111;
 	font-family: Helvetica;
 	padding: 20px;
-	font-size: 14px
-	border: 5px solid black;
+	font-size: 14px;
 }
 
 input:not([type=checkbox]), textarea {
@@ -32,9 +31,8 @@ input:not([type=checkbox]), textarea {
 form {
 	width: 800px;
 	margin: 0 auto 0 auto;
-
-
 }
+
 
 form fieldset {
 	padding: 26px;
@@ -48,7 +46,8 @@ form legend {
 	color: #030303;
 	-moz-border-radius: 6px;
 	-webkit-border-radius: 6px;
-	border: 1px solid #b4b4b4;
+	border: 3px solid #b4b4b4;
+	text-align: center;
 }
 
 form ol {
@@ -73,7 +72,6 @@ form ol li label {
 	float: left;
 	width: 140px;
 	font-weight: bold;
-
 }
 
 
@@ -94,6 +92,13 @@ padding:0;
 width:20px;
 }
 
+.center {
+  margin: 0 auto;
+  width: 800px;
+  background: white;
+  padding: 0px;
+  text-align: center;
+}
 
 .settings {
 	/* width: 400px; */
@@ -112,6 +117,7 @@ width:20px;
 	width: 36px;
 	position: relative;
 	height: 15px;
+	text-align: center;
 }
 
 
@@ -231,12 +237,14 @@ input[type=reset] {
 
 <body>
 
-<form id="form-add-spend" action="" method="post">{% csrf_token %}
+<form id="form-add-spend" method="post">
+    {% csrf_token %}
   <fieldset>
-    <legend>Занесение нового расхода</legend>
+    <legend>Добавить новый расход</legend>
     <ol>
-        <li><label for="form-add-spend">Категория</label></li>
-        <select size="" autofocus name="category" required form="form-add-spend">
+        <li><label>Категория</label></li>
+        <li><select autofocus name="category" required title="Выберите одну из категорий">
+            <option value="">Выбери категорию</option>
             <option value="Продукты питания">Продукты питания</option>
             <option value="Связь">Связь</option>
             <option value="Коммунальные платежи">Коммунальные платежи</option>
@@ -244,57 +252,60 @@ input[type=reset] {
             <option value="Общественный транспорт">Общественный транспорт</option>
             <option value="Налоги и штрафы">Налоги и штрафы</option>
             <option value="Развлечения">Развлечения</option>
+            <option value="Кредит">Кредит</option>
+            <option value="Бытовая техника">Бытовая техника</option>
+            <option value="Электроника и гаджеты">Электроника и гаджеты</option>
+            <option value="Дети">Дети</option>
             <option value="Другая категория">Другая категория</option>
         </select>
+        </li>
 
-    <!-- <li><input type="text" id="field1" name="field1" required/></li> -->
     </ol>
     <ol>
-      <li><label for="name">Наименование</label></li>
-      <li><input type="text" id="name" name="name" /></li>
+      <li><label for="name">Наименование покупки</label></li>
+      <li><input type="text" id="name" name="name" required/></li>
     </ol>
       <ol>
-      <li><label for="amount">Сумма</label></li>
-      <li><input type="text" id="amount" name="amount" /></li>
+      <li><label for="amount">Сумма в руб.копеек</label></li>
+      <li><input type="text" id="amount" name="amount" required pattern="\d+(\.\d{2})?"
+                 title="Формат ввода: (цифры руб).(цифры копеек)"/></li>
     </ol>
+      <ol>
+      <li><label for="date">Дата и время покупки</label></li>
+      <li><input type="date" id="date" name="date" value="" required title="Выберите дату покупки"/></li>
+    </ol>
+
       <div class="settings">
           <p>
-			<input type="checkbox" value="1" id="1" name="1" checked="checked"/>
+			<input type="checkbox" value="1" id="1" name="1"/>
 			<label class="check" for="1"></label>
 			<label class="info">Запланированная трата</label>
 
 		  </p>
+          <!--
 		  <p>
           	<input type="checkbox" value="2" id="2" name="2" />
 			<label class="check" for="2"></label>
 			<label class="info">Allow anyone to register</label>
           </p>
-
+            -->
       </div>
     <ol class="buttons">
         <li><input type="submit" class="button" value="OK" /></li>
         <li><input type="reset" class="button" value="Отмена" /></li>
     </ol>
   </fieldset>
+    <div class="center">
+        <ol>
+            <li><a href="http://127.0.0.1:8000/admin">Перейти в админ-панель</a></li>
+            <li><br><a href="http://127.0.0.1:8000/">Перейти на главную страницу</a></li>
+        </ol>
+      </div>
 
 </form>
 
-
 </body>
+<!-- Подвал Footer -->
+    <p class="center"> HomebrewDev (c) Егор Девятов 2019 г.</p>
 
-</html>
-
-
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <title>Spend page</title>
-</head>
-<body>
-    <a href="http://127.0.0.1:8000/admin"><center>Перейти в админ-панель</center></a>
-    <p></p>
-    <a href="http://127.0.0.1:8000/blog"><center>Перейти в блог</center></a>
-    <p><center>HomebrewDev (c) Егор Девятов 2019г.</center></p>
-</body>
 </html>

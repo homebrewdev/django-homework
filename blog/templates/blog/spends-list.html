@@ -2,19 +2,35 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Список всех расходов</title>
+
+<style>
+.center {
+  margin: 0 auto;
+  width: 800px;
+  background: white;
+  padding: 0px;
+  text-align: center;
+}
+</style>
+
 </head>
 <body>
-    <h1>Расходы:</h1>
-
+    <p class="center">
+        <a href="http://127.0.0.1:8000">Вернуться на главную страницу</a>
+    </p>
+    <h3>Расходы:</h3>
     <ul>
 	    {% for spend in object_list %}
-	    <li class="spend">Категория: {{ spend.category }}</li>
-        <li class="spend">Наименование: {{ spend.name }}</li>
-        <li class="spend">Дата создания: {{ spend.created_date }}</li>
-        <li class="spend">Цена: {{ spend.amount }}</li>
-        <li class="spend">---------------------------------------------------</li>
+	    <li>Категория: {{ spend.category }}</li>
+        <li>Наименование: {{ spend.name }}</li>
+        <li>Цена: {{ spend.amount }} рублей</li>
+        <li>Дата создания: {{ spend.created_date }}</li>
+        <li>---------------------------------------------------</li>
 	    {% endfor %}
     </ul>
+
 </body>
+<!-- Подвал Footer -->
+    <p class="center">HomebrewDev (c) Егор Девятов 2019 г.</p>
 </html>
