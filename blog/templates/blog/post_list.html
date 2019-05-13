@@ -238,10 +238,11 @@ input[type=reset] {
 
         <!-- <link rel="stylesheet" href="style.css" type="text/css"> -->
 </head>
+<link rel="icon" href="/favicon.ico" type="image/x-icon">
     <body>
     <form id="form-1" method="post">{% csrf_token %}
         <fieldset>
-            <legend>Учет личных расходов</legend>
+            <legend class="center">Учет личных расходов</legend>
             <ol class="center">
             <li><a href="http://127.0.0.1:8000/admin">Перейти в админ-панель</a></li>
             <li><br><a href="http://127.0.0.1:8000/add_spend">Добавить новый расход</a></li>

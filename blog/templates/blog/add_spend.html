@@ -19,6 +19,7 @@ body {
 	font-size: 14px;
 }
 
+
 input:not([type=checkbox]), textarea {
 	width: 250px;
 	padding: 5px;
@@ -92,9 +93,16 @@ padding:0;
 width:20px;
 }
 
+input[type=text] {
+    width:  400px;
+    height: 15px;
+    padding: 5px 10px 5px 10px;
+    border:1px solid #999;
+    font-size:16px;
+}
+
 .center {
   margin: 0 auto;
-  width: 800px;
   background: white;
   padding: 0px;
   text-align: center;
@@ -240,10 +248,10 @@ input[type=reset] {
 <form id="form-add-spend" method="post">
     {% csrf_token %}
   <fieldset>
-    <legend>Добавить новый расход</legend>
+    <legend class="center">Добавить новый расход</legend>
     <ol>
         <li><label>Категория</label></li>
-        <li><select autofocus name="category" required title="Выберите одну из категорий">
+        <li><select name="category" autofocus title="Выберите одну из категорий" required>
             <option value="">Выбери категорию</option>
             <option value="Продукты питания">Продукты питания</option>
             <option value="Связь">Связь</option>
@@ -259,16 +267,16 @@ input[type=reset] {
             <option value="Другая категория">Другая категория</option>
         </select>
         </li>
-
     </ol>
+      <!-- Основные поля -->
     <ol>
       <li><label for="name">Наименование покупки</label></li>
-      <li><input type="text" id="name" name="name" required/></li>
+      <li><input type="text" id="name" name="name" size="40" placeholder="Введите наименование" required/></li>
     </ol>
       <ol>
-      <li><label for="amount">Сумма в руб.копеек</label></li>
-      <li><input type="text" id="amount" name="amount" required pattern="\d+(\.\d{2})?"
-                 title="Формат ввода: (цифры руб).(цифры копеек)"/></li>
+      <li><label for="amount">Сумма</label></li>
+      <li><input type="text" id="amount" name="amount" placeholder="Введите сумму в рублях.коп" required pattern="\d+(\.\d{2})?"
+                 title="Формат ввода: [цифры руб].[цифры копеек]"/></li>
     </ol>
       <ol>
       <li><label for="date">Дата и время покупки</label></li>
@@ -280,7 +288,11 @@ input[type=reset] {
 			<input type="checkbox" value="1" id="1" name="1"/>
 			<label class="check" for="1"></label>
 			<label class="info">Запланированная трата</label>
-
+          </p>
+          <p>
+            <input type="checkbox" value="2" id="2" name="2"/>
+			<label class="check" for="2"></label>
+			<label class="info">Добавить в избранное</label>
 		  </p>
           <!--
 		  <p>
